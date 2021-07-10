@@ -66,15 +66,15 @@ func Dprint(inDay carbon.Carbon, output, type1 string) error {
 	case "sw":
 		fmt.Printf("%s", inDay.ToFormatString("l"))
 	case "ly":
-		fmt.Printf("%s", inDay.ToChineseYearString())
+		fmt.Printf("%s", inDay.Lunar().ToChineseYearString())
 	case "lm":
-		fmt.Printf("%s", inDay.ToLunarMonthString())
+		fmt.Printf("%s", inDay.Lunar().ToChineseMonthString())
 	case "ld":
-		fmt.Printf("%s", inDay.ToLunarDayString())
+		fmt.Printf("%s", inDay.Lunar().ToChineseDayString())
 	case "la":
-		fmt.Printf("%s", inDay.AnimalYear())
+		fmt.Printf("%s", inDay.Lunar().Animal())
 	case "lfull":
-		fmt.Printf("%s (%s) 年%s月%s日", inDay.ToChineseYearString(), inDay.AnimalYear(), inDay.ToLunarMonthString(), inDay.ToLunarDayString())
+		fmt.Printf("%s (%s) 年 %s %s", inDay.Lunar().ToChineseYearString(), inDay.Lunar().Animal(), inDay.Lunar().ToChineseMonthString(), inDay.Lunar().ToChineseDayString())
 	case "sfull":
 		fmt.Printf("%s", inDay.ToDateString())
 	default:
